@@ -17,7 +17,7 @@ jobs:
     - name: Build with Maven
       run: mvn clean install
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag 29101997/my-image-name:$(date +%s)
+      run: docker build . --file Dockerfile --tag 29101997/my-image-name:v1
 
 
   push:
@@ -26,4 +26,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Push the Docker image
-      run: docker push 29101997/my-image-name:$(date +%s)
+      run: docker push 29101997/my-image-name:v1
