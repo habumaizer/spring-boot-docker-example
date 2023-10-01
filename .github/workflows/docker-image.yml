@@ -18,3 +18,12 @@ jobs:
       run: mvn clean install
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag 29101997/my-image-name:$(date +%s)
+
+
+  push:
+
+    runs-on: self-hosted
+    steps:
+    - uses: actions/checkout@v3
+    - name: Push the Docker image
+      run: docker push 29101997/my-image-name:$(date +%s)
